@@ -105,7 +105,6 @@ mod tests {
         let stocks = vec![3, 5, -7, 3, 3, -2];
 
         assert_eq!(find_sell_buy(stocks), (2, 4));
-        // assert_eq!(find_sell_buy(stocks),);
     }
 
     #[test]
