@@ -49,7 +49,7 @@ fn main() {
         durations.clear();
     }
 
-    println!("{}", Table::new(rows).to_string());
+    println!("{}", Table::new(rows));
 }
 
 // Oppgave 1-1
