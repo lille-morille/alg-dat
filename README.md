@@ -1,0 +1,5 @@
+## Hvordan kjøre
+
+```
+cargo run
+```
