@@ -10,6 +10,7 @@ struct Run {
     avg_time_per_10_000_elem: u128,
 }
 
+// Run speed tests and output table
 fn main() {
     let runs: u8 = 5;
     let elems = [1_000, 10_000, 100_000, 1_000_000];
@@ -21,7 +22,7 @@ fn main() {
 
     for elem in elems {
         for _ in 1..=runs {
-            let stocks = create_stocks(elem, -50, 50);
+            let stocks = create_rnd_rel_stocks(elem, -50, 50);
 
             let stop_watch = Instant::now();
             find_sell_buy(stocks);
@@ -56,7 +57,8 @@ fn main() {
 // hvilket kjøps- og salgstidspunkt som lønner
 // seg best. Sjekk at algoritmen virker.
 
-fn create_stocks(count: u32, min: i32, max: i32) -> Vec<i32> {
+// Creates a random set of relative stocks
+fn create_rnd_rel_stocks(count: u32, min: i32, max: i32) -> Vec<i32> {
     let mut random = rand::thread_rng();
     (0..count).map(|_| random.gen_range(min..max)).collect()
 }
@@ -93,6 +95,7 @@ fn find_sell_buy(relative_stocks: Vec<i32>) -> (usize, usize) {
     (buy_idx, sell_idx)
 }
 
+// Testing functionality of algorithm
 #[cfg(test)]
 mod tests {
     use super::*;
